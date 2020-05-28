@@ -22,7 +22,6 @@ var chartGroup = svg.append("g")
 var chosenXAxis = "poverty";
 var chosenYAxis = "healthcare";
 
-/////////FUNCTIONS////////////////
 //define updating x-scale function
 function xScale(data, chosenXAxis) {
   var xLinearScale = d3.scaleLinear()
@@ -91,7 +90,7 @@ function updateToolTip(chosenXAxis, circlesGroup,chosenYAxis,xLinearScale,yLinea
 }
 
 //load data
-d3.csv("assets/data/data.csv").then(function(data, err){
+d3.csv("data/data.csv").then(function(data, err){
     if (err) throw err;
     console.log(data);
     data.forEach(function(d) {
@@ -187,7 +186,6 @@ d3.csv("assets/data/data.csv").then(function(data, err){
     .attr('value','obesity')
     .text("Obese (%)");
 
-
     //toolTip
     var textsLabel=chartGroup.selectAll('text')
             .exit()
@@ -202,7 +200,6 @@ d3.csv("assets/data/data.csv").then(function(data, err){
             .attr('text-anchor', 'middle')
             .attr("class", "stateText");
    
-    // chartGroup=updateToolTip(chosenXAxis, chartGroup,chosenYAxis,xLinearScale,yLinearScale)
     //x aixs event listener
     xlabelsGroup.selectAll("text")
     .on("click", function() {
@@ -323,14 +320,6 @@ d3.csv("assets/data/data.csv").then(function(data, err){
         }
       }
     });
-
-    
-   
-
-    
-
-
-
 
 
 }).catch(function(error){
