@@ -196,7 +196,7 @@ d3.csv("data/data.csv").then(function(data, err){
                 return `${d.abbr}`;
             })
             .attr('x', d => xLinearScale(d[chosenXAxis]))
-            .attr('y', d => yLinearScale(d[chosenYAxis]))
+            .attr('y', d => yLinearScale(d[chosenYAxis]-.3))
             .attr('text-anchor', 'middle')
             .attr("class", "stateText");
    
